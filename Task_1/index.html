@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard Quiz App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Flashcard Quiz</h1>
+      <p class="subtitle" id="cardCounter">Card 1 of 1</p>
+    </header>
+
+    <main>
+      <!-- Flashcard Display -->
+      <div class="flashcard-area">
+        <div class="flashcard" id="flashcard">
+          <div class="flashcard-inner" id="flashcardInner">
+            <div class="flashcard-front">
+              <span class="card-label">Question</span>
+              <p class="card-text" id="questionText">Click "Add Card" to create your first flashcard!</p>
+            </div>
+            <div class="flashcard-back">
+              <span class="card-label">Answer</span>
+              <p class="card-text" id="answerText">...</p>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-show" id="showAnswerBtn">Show Answer</button>
+      </div>
+
+      <!-- Navigation -->
+      <div class="navigation">
+        <button class="btn btn-nav" id="prevBtn">Previous</button>
+        <button class="btn btn-nav" id="nextBtn">Next</button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button class="btn btn-add" id="addBtn">Add Card</button>
+        <button class="btn btn-edit" id="editBtn">Edit Card</button>
+        <button class="btn btn-delete" id="deleteBtn">Delete Card</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for Add/Edit -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <h2 id="modalTitle">Add New Flashcard</h2>
+      <form id="cardForm">
+        <div class="form-group">
+          <label for="questionInput">Question</label>
+          <textarea id="questionInput" rows="3" placeholder="Enter your question..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="answerInput">Answer</label>
+          <textarea id="answerInput" rows="3" placeholder="Enter the answer..." required></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-cancel" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-save" id="saveBtn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
