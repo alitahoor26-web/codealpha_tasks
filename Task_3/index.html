@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Fitness Tracker</h1>
+      <p class="date-display" id="dateDisplay"></p>
+    </header>
+
+    <!-- Tabs -->
+    <nav class="tabs">
+      <button class="tab active" data-tab="dashboard">Dashboard</button>
+      <button class="tab" data-tab="log">Log Activity</button>
+      <button class="tab" data-tab="history">History</button>
+    </nav>
+
+    <!-- Dashboard -->
+    <section class="tab-content active" id="dashboard">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon steps-icon">👟</div>
+          <div class="stat-value" id="totalSteps">0</div>
+          <div class="stat-label">Steps Today</div>
+          <div class="progress-bar"><div class="progress-fill steps-fill" id="stepsProgress"></div></div>
+          <div class="progress-label" id="stepsGoal">0 / 10,000</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon cal-icon">🔥</div>
+          <div class="stat-value" id="totalCalories">0</div>
+          <div class="stat-label">Calories Burned</div>
+          <div class="progress-bar"><div class="progress-fill cal-fill" id="calProgress"></div></div>
+          <div class="progress-label" id="calGoal">0 / 500</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon time-icon">⏱️</div>
+          <div class="stat-value" id="totalTime">0</div>
+          <div class="stat-label">Minutes Active</div>
+          <div class="progress-bar"><div class="progress-fill time-fill" id="timeProgress"></div></div>
+          <div class="progress-label" id="timeGoal">0 / 60</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon workout-icon">💪</div>
+          <div class="stat-value" id="totalWorkouts">0</div>
+          <div class="stat-label">Workouts</div>
+          <div class="progress-bar"><div class="progress-fill workout-fill" id="workoutProgress"></div></div>
+          <div class="progress-label" id="workoutGoal">0 / 3</div>
+        </div>
+      </div>
+
+      <div class="chart-section">
+        <h2>Weekly Overview</h2>
+        <div class="chart-container">
+          <div class="bar-chart" id="weeklyChart"></div>
+        </div>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-color steps-legend"></span> Steps</span>
+          <span class="legend-item"><span class="legend-color cal-legend"></span> Calories</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Log Activity -->
+    <section class="tab-content" id="log">
+      <div class="log-form-card">
+        <h2>Log Activity</h2>
+        <form id="activityForm">
+          <div class="form-group">
+            <label for="exerciseType">Exercise Type</label>
+            <select id="exerciseType" required>
+              <option value="">Select exercise...</option>
+              <option value="running">Running</option>
+              <option value="walking">Walking</option>
+              <option value="cycling">Cycling</option>
+              <option value="swimming">Swimming</option>
+              <option value="yoga">Yoga</option>
+              <option value="weightlifting">Weight Lifting</option>
+              <option value="hiit">HIIT</option>
+              <option value="dancing">Dancing</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="duration">Duration (min)</label>
+              <input type="number" id="duration" min="1" max="600" placeholder="30" required>
+            </div>
+            <div class="form-group">
+              <label for="calories">Calories Burned</label>
+              <input type="number" id="calories" min="0" max="5000" placeholder="200" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="steps">Steps (optional)</label>
+            <input type="number" id="steps" min="0" max="100000" placeholder="0">
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes (optional)</label>
+            <textarea id="notes" rows="2" placeholder="How did it go?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-log">Log Activity</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- History -->
+    <section class="tab-content" id="history">
+      <div class="history-header">
+        <h2>Activity History</h2>
+        <button class="btn btn-clear" id="clearAllBtn">Clear All</button>
+      </div>
+      <div class="history-list" id="historyList">
+        <p class="empty-msg">No activities logged yet.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
